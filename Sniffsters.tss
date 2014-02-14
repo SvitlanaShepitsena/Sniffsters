@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<ArrayOfArrayOfArrayOfString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <ArrayOfArrayOfString>
+    <ArrayOfString>
+      <string>c:\dev\sniffsters\sniffsters\views\shared\_breederpartial.cshtml</string>
+    </ArrayOfString>
+    <ArrayOfString>
+      <string>c:\dev\sniffsters\sniffsters\views\home\homeaction.cshtml</string>
+    </ArrayOfString>
+    <ArrayOfString>
+      <string>c:\dev\sniffsters\sniffsters\views\explore\exploreaction.cshtml</string>
+    </ArrayOfString>
+    <ArrayOfString>
+      <string>C:\dev\Sniffsters\Sniffsters\Views\About\AboutAction.cshtml</string>
+    </ArrayOfString>
+    <ArrayOfString>
+      <string>C:\dev\Sniffsters\Sniffsters\Views\Shared\_Layout.cshtml</string>
+    </ArrayOfString>
+  </ArrayOfArrayOfString>
+</ArrayOfArrayOfArrayOfString>

@@ -1,0 +1,89 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Sniffsters.</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href=@Url.Action("HomeAction", "Home")>
+                    <img src="~/Content/img/Sniffsters-Log.png" alt="...">
+                </a>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("HOME", "HomeAction", "Home")</li>
+                    <li>@Html.ActionLink("ABOUT", "AboutAction", "About")</li>
+                    <li>@Html.ActionLink("BREEDERS", "BreedersAction", "Breeders")</li>
+                    <li>@Html.ActionLink("DOGS", "DogsAction", "Dogs")</li>
+                    <li>@Html.ActionLink("EXPLORE", "ExploreAction", "Explore")</li>
+                </ul>
+                @Html.Partial("_LoginPartial")
+            </div>
+        </div>
+
+    </div>
+        @if (@ViewBag.HideSearchBar == null)
+        {
+            <div class="navbar searchFormWrapper">
+                <div class="container">
+                    <div class="row">
+                        <form class="navbar-form" role="form">
+                            <div class="col-sm-2 searchAgain">
+                                <span class="">
+                                    search again
+                                </span>
+                            </div>
+                            <div class="form-group col-sm-3">
+                                <label class="sr-only" for="exampleInputEmail2">Email address</label>
+                                <input type="text" class="form-control" placeholder="Breed">
+                            </div>
+                            <div class="form-group col-sm-3">
+                                <label class="sr-only" for="exampleInputPassword2">Password</label>
+                                <input class="form-control" placeholder="Location">
+                            </div>
+                            <div class="col-sm-2">
+                                <button type="submit" class="btn btn-info btn-fetch">Fetch</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        }
+
+    <div class="container body-content">
+        <div class="container mainContent">
+            @RenderBody()
+        </div>
+
+        <hr />
+        <footer>
+            <div class="container">
+
+                <div class="navbar-header">
+                    <p>COPYRIGHT ©2014 SNIFFSTERS LLC</p>
+                </div>
+                <ul class="nav nav-pills navbar-right navFooter">
+                    <li>@Html.ActionLink("ADVERTISE", "AdvertiseAction", "Advertise")</li>
+                    <li>@Html.ActionLink("TERMS", "TermsAction", "Terms")</li>
+                    <li>@Html.ActionLink("CONTACT", "ContactAction", "Contact")</li>
+                </ul>
+            </div>
+        </footer>
+    </div>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", false)
+</body>
+</html>

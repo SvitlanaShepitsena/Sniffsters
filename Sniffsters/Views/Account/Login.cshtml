@@ -1,0 +1,45 @@
+﻿@model Sniffsters.Models.LoginViewModel
+
+@{
+    ViewBag.Title = "Log in to Sniffsters";
+}
+
+<div class="row">
+    <div class="col-sm-6 mainContentWrapper">
+        <div class="well">
+            @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { role = "form" }))
+            {
+                <fieldset>
+                    @Html.AntiForgeryToken()
+
+                    <section id="loginForm">
+                        @Html.Partial("_LoginForm")
+                    </section>
+                </fieldset>
+            }
+        </div>
+    </div>
+    <div class="col-sm-6 mainContentWrapper">
+        <div class="well">
+            <h4>Login to Sniffsters with Facebook</h4>
+            <section id="socialLoginForm">
+                @Html.Partial("_ExternalLoginsListPartial", new { Action = "ExternalLogin", ReturnUrl = ViewBag.ReturnUrl })
+            </section>
+        </div>
+    </div>
+
+</div>
+
+<div class="row">
+    <div class="col-sm-12">
+
+        <p class="text-center">
+                @Html.ActionLink("Login", "Login", null, new { @class = " btn btn-default" }) If you already have Sniffsters Account.
+        </p>
+
+    </div>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

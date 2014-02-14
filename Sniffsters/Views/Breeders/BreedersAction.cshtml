@@ -1,0 +1,17 @@
+﻿@model System.Collections.Generic.List<Sniffsters.Models.UserViewModel>
+
+@{
+    ViewBag.Title = "title";
+}
+
+<ol>
+    @foreach (var item in Model)
+    {
+        <li>@item.NickName</li>
+        
+    }
+
+
+</ol>
+
+

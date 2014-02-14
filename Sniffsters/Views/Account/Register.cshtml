@@ -1,0 +1,81 @@
+﻿@model Sniffsters.Models.RegisterViewModel
+@{
+    ViewBag.Title = "Register to Sniffster";
+}
+
+
+<div class="row">
+    <div class="col-sm-6 mainContentWrapper">
+        <div class="well">
+            @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { role = "form" }))
+            {
+                <fieldset>
+                    @Html.AntiForgeryToken()
+                    <h4>Create an account</h4>
+                    <hr />
+
+                    <section>
+                        @Html.ValidationSummary()
+
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.UserName, new { @class = "control-label" })
+                            @Html.TextBoxFor(m => m.UserName, new { @class = "form-control" })
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.Password, new { @class = "control-label" })
+                            @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.ConfirmPassword, new { @class = "control-label" })
+                            @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" })
+                        </div>
+
+                        <div class="form-group">
+                            <div class="radio">
+                                <label>
+                                    @Html.RadioButtonFor(t => t.Breeder, false, new { id = "looker" })
+                                    I am looking for a dog
+                                </label>
+                            </div>
+                            <div class="radio">
+                                <label>
+                                    @Html.RadioButtonFor(t => t.Breeder, true, new { id = "breeder" })
+                                    I am a breeder
+                                </label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <input type="submit" class="btn btn-default" value="Register" />
+
+                        </div>
+                    </section>
+                </fieldset>
+            }
+        </div>
+    </div>
+    <div class="col-sm-6 mainContentWrapper">
+        <div class="well">
+            <h4>Register at Sniffsters with Facebook</h4>
+            <section id="socialLoginForm">
+                @Html.Partial("_ExternalLoginsListPartial", new { Action = "ExternalLogin", ViewBag.ReturnUrl })
+            </section>
+        </div>
+    </div>
+
+</div>
+
+<div class="row">
+    <div class="col-sm-12">
+                
+<p class="text-center">
+    @Html.ActionLink("Login", "Login", null, new { @class = " btn btn-default" }) If you already have Sniffsters Account.
+</p>
+
+    </div>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
